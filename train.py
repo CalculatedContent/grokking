@@ -191,6 +191,8 @@ def main(args):
         for i in range(5):
             if e==10**i:
                 torch.save(model.state_dict(), f"pytorch_model.{i}.bin")
+        if e==30000:
+            torch.save(model.state_dict(), f"pytorch_model.30k.bin")
             
 
 
