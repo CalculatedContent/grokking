@@ -188,6 +188,11 @@ def main(args):
             plt.savefig("figures/loss.png", dpi=150)
             plt.close()
 
+        for i in range(5):
+            if e==10**i:
+                torch.save(model.state_dict(), f"pytorch_model.{i}.bin")
+            
+
 
 if __name__ == "__main__":
     parser = ArgumentParser()
