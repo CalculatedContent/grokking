@@ -188,12 +188,10 @@ def main(args):
             plt.savefig("figures/loss.png", dpi=150)
             plt.close()
 
-        for i in range(5):
-            if e==10**i:
-                torch.save(model.state_dict(), f"pytorch_model.{i}.bin")
+        if (e + 1) % 1000 == 0:
+            steps = torch.arange(len(train_acc)).numpy() * steps_per_epoch
+            torch.save(model.state_dict(), f"pytorch_model.{steps}.bin")
 
-
-    torch.save(model.state_dict(), f"pytorch_model.last.bin")
             
 
 
